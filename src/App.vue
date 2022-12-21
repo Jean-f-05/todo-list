@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import "./styles/global.css";
+</script>
 
 <template>
   <header></header>
