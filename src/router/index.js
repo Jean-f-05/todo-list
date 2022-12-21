@@ -12,18 +12,13 @@ const router = createRouter({
       path: "/todos",
       name: null,
       component: TodosList,
-      children: [{ path: "add" }],
+      children: [{ path: "add" }, { path: "done" }],
     },
     {
       path: "/todos/:id",
       name: null,
       component: TodoDetails,
       children: [{ path: "delete" }, { path: "update" }],
-    },
-    {
-      path: "/todos/add",
-      name: null,
-      component: null,
     },
     {
       path: "/:notFound(.*)",
