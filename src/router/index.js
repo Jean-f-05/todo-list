@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import TodoDetails from "./../pages/todos/TodoDetails.vue";
-import TodosList from "./../pages/todos/TodosList.vue";
-import NotFound from "./../pages/NotFound.vue";
+import TodoDetails from "./../pages/Todos/TodoDetails/TodoDetails.vue";
+import TodosList from "./../pages/Todos/TodosList/TodosList.vue";
+import NotFound from "./../pages/NotFound/NotFound.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,10 +17,7 @@ const router = createRouter({
     {
       path: "/todos/:id",
       name: null,
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(TodoDetails),
+      component: TodoDetails,
       children: [{ path: "delete" }, { path: "update" }],
     },
     {
