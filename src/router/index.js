@@ -21,7 +21,7 @@ const router = createRouter({
       path: "/todos/:id",
       name: null,
       component: TodoDetails,
-      children: [{ path: "delete" }, { path: "update", component: TodoEdit }],
+      children: [{ path: "delete" }, { path: "edit", component: TodoEdit }],
     },
     {
       path: "/:notFound(.*)",
