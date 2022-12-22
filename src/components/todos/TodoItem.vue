@@ -1,10 +1,10 @@
 <template>
   <li>
     <h3>{{ "description" }}</h3>
-    <h4>{{ "completed" }}</h4>
+    <base-badge :type="completed" title="completed"></base-badge>
     <div class="action">
-      <router-link :to="todoEditLink">EDIT</router-link>
-      <router-link :to="todoDeleteLink">DELETE</router-link>
+      <base-button link mode="outline" :to="todoEditLink">EDIT</base-button>
+      <base-button link mode="delete" :to="todoDeleteLink">DELETE</base-button>
     </div>
   </li>
 </template>

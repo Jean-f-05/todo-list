@@ -1,21 +1,23 @@
 <template>
   <section>FILTER</section>
   <section>
-    <div class="controls">
-      <button>Refresh</button>
-      <router-link to="/add">Add todo</router-link>
-    </div>
-    <ul v-if="hasTodos">
-      <todo-item
-        v-for="todo in filteredTodos"
-        :key="todo.id"
-        :id="todo.id"
-        :description="todo.description"
-        :created-at="todo.createdAt"
-        :completed="todo.completed"
-      ></todo-item>
-    </ul>
-    <h3 v-else>NO TODOS</h3>
+    <base-card>
+      <div class="controls">
+        <base-button mode="outline">Refresh</base-button>
+        <base-button link to="/add">Add todo</base-button>
+      </div>
+      <ul v-if="hasTodos">
+        <todo-item
+          v-for="todo in filteredTodos"
+          :key="todo.id"
+          :id="todo.id"
+          :description="todo.description"
+          :created-at="todo.createdAt"
+          :completed="todo.completed"
+        ></todo-item>
+      </ul>
+      <h3 v-else>NO TODOS</h3>
+    </base-card>
   </section>
 </template>
 

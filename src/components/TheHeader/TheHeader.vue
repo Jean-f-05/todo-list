@@ -1,10 +1,10 @@
 <template>
   <header>
     <nav>
-      <h1><router-link to="/">MY TODOS</router-link></h1>
+      <h1><RouterLink to="/">MY TODOS</RouterLink></h1>
       <ul>
-        <li><router-link to="/todos">ALL TODOS</router-link></li>
-        <li><router-link to="/todos/done">DONE TODOS</router-link></li>
+        <li><RouterLink to="/todos">ALL TODOS</RouterLink></li>
+        <li><RouterLink to="/todos/done">DONE TODOS</RouterLink></li>
       </ul>
     </nav>
   </header>
