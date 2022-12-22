@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import TodoDetails from "./../pages/Todos/TodoDetails/TodoDetails.vue";
 import TodosList from "./../pages/Todos/TodosList/TodosList.vue";
+import AddTodo from "./../pages/Todos/AddTodo/AddTodo.vue";
+import TodoEdit from "./../pages/Todos/TodoEdit/TodoEdit.vue";
 import NotFound from "./../pages/NotFound/NotFound.vue";
 
 const router = createRouter({
@@ -12,13 +14,14 @@ const router = createRouter({
       path: "/todos",
       name: null,
       component: TodosList,
-      children: [{ path: "add" }, { path: "done" }],
+      children: [{ path: "done" }],
     },
+    { path: "/add", component: AddTodo },
     {
       path: "/todos/:id",
       name: null,
       component: TodoDetails,
-      children: [{ path: "delete" }, { path: "update" }],
+      children: [{ path: "delete" }, { path: "update", component: TodoEdit }],
     },
     {
       path: "/:notFound(.*)",
