@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  emits: ["save-data"],
   data() {
     return {
       description: "",
@@ -21,7 +22,7 @@ export default {
         description: this.description,
       };
 
-      console.log(formData);
+      this.$emit("save-data", formData);
     },
   },
 };
@@ -52,9 +53,6 @@ input:focus {
   background-color: #d3e5e2;
   outline: none;
   border-color: #1f7065;
-}
-
-div {
 }
 
 h3 {

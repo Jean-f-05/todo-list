@@ -2,7 +2,7 @@
   <section>
     <base-card>
       <h2>Add Todo</h2>
-      <todo-form></todo-form>
+      <todo-form @save-data="saveData"></todo-form>
     </base-card>
   </section>
 </template>
@@ -12,6 +12,12 @@ import TodoForm from "../../../components/todos/TodoForm.vue";
 
 export default {
   components: { TodoForm },
+  methods: {
+    saveData(data) {
+      this.$store.dispatch("todos/addTodo", data);
+      this.$router.replace("/todos");
+    },
+  },
 };
 </script>
 
