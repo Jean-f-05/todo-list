@@ -4,7 +4,7 @@
     <base-card>
       <div class="controls">
         <base-button mode="outline">Refresh</base-button>
-        <base-button link to="/add">Add todo</base-button>
+        <base-button link to="/add">ADD TODO</base-button>
       </div>
       <ul v-if="hasTodos">
         <todo-item
