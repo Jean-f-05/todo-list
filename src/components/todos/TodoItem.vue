@@ -1,17 +1,21 @@
 <template>
   <li>
-    <h3>{{ "description" }}</h3>
-    <base-badge :type="completed" title="completed"></base-badge>
-    <div class="action">
-      <base-button link mode="outline" :to="todoEditLink">EDIT</base-button>
-      <base-button link mode="delete" :to="todoDeleteLink">DELETE</base-button>
+    <h3>{{ description }}</h3>
+    <base-badge :type="completed"></base-badge>
+    <div class="actions">
+      <base-button v-if="!completed" link mode="outline" :to="todoEditLink"
+        >EDIT</base-button
+      >
+      <base-button v-if="!completed" link mode="delete" :to="todoDeleteLink"
+        >DELETE</base-button
+      >
     </div>
   </li>
 </template>
 
 <script>
 export default {
-  propos: ["id", "description", "createdAt", "completed"],
+  props: ["id", "description", "createdAt", "completed"],
   computed: {
     todoEditLink() {
       return this.$route.path + "/" + this.id + "/edit";

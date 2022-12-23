@@ -1,15 +1,15 @@
 <template>
-  <span class="badge" :class="type">
+  <span class="badge" :class="type ? 'completed' : 'ongoing'">
     {{ text }}
   </span>
 </template>
 
 <script>
 export default {
-  props: ["type", "title"],
+  props: ["type"],
   computed: {
     text() {
-      return this.title.toUpperCase();
+      return this.type ? "COMPLETED" : "ONGOING";
     },
   },
 };
@@ -26,12 +26,12 @@ export default {
 }
 
 .completed {
-  background-color: #1f7065;
+  background-color: #ced4da;
   color: white;
 }
 
 .ongoing {
-  background-color: #ced4da;
+  background-color: #1f7065;
   color: white;
 }
 </style>

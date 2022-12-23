@@ -16,11 +16,11 @@ export default {
       required: false,
       deafult: false,
     },
-  },
-  to: {
-    type: String,
-    required: false,
-    deafult: "/",
+    to: {
+      type: String,
+      required: false,
+      deafult: "/",
+    },
   },
 };
 </script>
