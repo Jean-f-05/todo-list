@@ -1,6 +1,14 @@
 <template>
-  <div class="card"><slot> </slot></div>
+  <div class="card" :class="{ bgColor: Colorized }">
+    <slot></slot>
+  </div>
 </template>
+
+<script>
+export default {
+  props: ["Colorized"],
+};
+</script>
 
 <style scoped>
 .card {
@@ -9,5 +17,10 @@
   padding: 1rem;
   margin: 2rem auto;
   max-width: 40rem;
+}
+
+.bgColor {
+  background-color: #227c70;
+  color: #e6e2c3;
 }
 </style>

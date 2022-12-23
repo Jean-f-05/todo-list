@@ -1,5 +1,5 @@
 <template>
-  <section>FILTER</section>
+  <section><todo-filter @change-filter="setFilters"></todo-filter></section>
   <section>
     <base-card>
       <div class="controls">
@@ -23,15 +23,38 @@
 
 <script>
 import TodoItem from "../../../components/todos/TodoItem.vue";
+import TodoFilter from "../../../components/todos/TodoFilter.vue";
 
 export default {
-  components: { TodoItem },
+  components: { TodoItem, TodoFilter },
+  data() {
+    return {
+      activeFilters: {
+        completed: true,
+        ongoing: true,
+      },
+    };
+  },
   computed: {
     filteredTodos() {
-      return this.$store.getters["todos/todos"];
+      const todos = this.$store.getters["todos/todos"];
+      return todos.filter((todo) => {
+        if (this.activeFilters.completed && todo["completed"]) {
+          return true;
+        }
+        if (this.activeFilters.ongoing && !todo["completed"]) {
+          return true;
+        }
+        return false;
+      });
     },
     hasTodos() {
       return this.$store.getters["todos/hasTodos"];
+    },
+  },
+  methods: {
+    setFilters(updatedFilters) {
+      this.activeFilters = updatedFilters;
     },
   },
 };
