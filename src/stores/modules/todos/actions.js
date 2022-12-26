@@ -40,4 +40,19 @@ export default {
     }
     context.commit("setTodos", responseData);
   },
+
+  async deleteTodo(context, data) {
+    const response = await fetch(
+      `https://63650452f711cb49d1f2b256.mockapi.io/api/v1/tasks/${data}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (!response.ok) {
+      //
+    }
+  },
 };

@@ -1,4 +1,7 @@
 <template>
+  <div v-if="isLoading">
+    <base-loader></base-loader>
+  </div>
   <li>
     <div class="item-head">
       <base-badge :type="completed"></base-badge>
@@ -17,6 +20,7 @@
           name="bi-trash"
           :to="todoDeleteLink"
           color="#fa5252"
+          @click="deleteData(id)"
         ></base-button>
       </div>
     </div>
@@ -36,6 +40,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
   props: ["id", "description", "createdAt", "completed"],
   computed: {
     todoEditLink() {
@@ -43,6 +52,14 @@ export default {
     },
     todoDeleteLink() {
       return this.$route.path + "/" + this.id + "/delete";
+    },
+  },
+  methods: {
+    async deleteData(id) {
+      this.isLoading = true;
+      await this.$store.dispatch("todos/deleteTodo", id);
+      this.$router.replace("/todos");
+      this.isLoading = false;
     },
   },
 };
