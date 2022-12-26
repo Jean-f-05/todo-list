@@ -3,7 +3,7 @@
   <section>
     <base-card>
       <div class="controls">
-        <base-button mode="outline">Refresh</base-button>
+        <base-button mode="outline" @click="loadTodos">Refresh</base-button>
         <base-button link to="/add">ADD TODO</base-button>
       </div>
       <ul v-if="hasTodos">
@@ -52,7 +52,13 @@ export default {
       return this.$store.getters["todos/hasTodos"];
     },
   },
+  created() {
+    this.loadTodos();
+  },
   methods: {
+    loadTodos() {
+      this.$store.dispatch("todos/loadTodos");
+    },
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
     },

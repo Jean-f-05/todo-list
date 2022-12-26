@@ -22,4 +22,22 @@ export default {
 
     context.commit("addTodo", todoData);
   },
+
+  async loadTodos(context) {
+    const response = await fetch(
+      "https://63650452f711cb49d1f2b256.mockapi.io/api/v1/tasks?sortBy=createdAt&order=desc&page=1&limit=10",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const responseData = await response.json();
+
+    if (!response.ok) {
+      //
+    }
+    context.commit("setTodos", responseData);
+  },
 };

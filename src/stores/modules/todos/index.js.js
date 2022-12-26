@@ -7,7 +7,7 @@ export default {
   state() {
     return {
       todos: [
-        {
+        /*  {
           createdAt: "2022-12-18T16:31:22.352Z",
           description: "Walk the dog",
           completed: true,
@@ -42,7 +42,7 @@ export default {
           description: "1 hour of learning",
           completed: true,
           id: "11",
-        },
+        }, */
       ],
     };
   },
