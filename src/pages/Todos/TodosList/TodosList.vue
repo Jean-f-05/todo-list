@@ -6,7 +6,10 @@
         <base-button mode="outline" @click="loadTodos">Refresh</base-button>
         <base-button link to="/add">ADD TODO</base-button>
       </div>
-      <ul v-if="hasTodos">
+      <div v-if="isLoading">
+        <base-loader></base-loader>
+      </div>
+      <ul v-else-if="hasTodos">
         <todo-item
           v-for="todo in filteredTodos"
           :key="todo.id"
@@ -29,6 +32,7 @@ export default {
   components: { TodoItem, TodoFilter },
   data() {
     return {
+      isLoading: false,
       activeFilters: {
         completed: true,
         ongoing: true,
@@ -49,15 +53,17 @@ export default {
       });
     },
     hasTodos() {
-      return this.$store.getters["todos/hasTodos"];
+      return !this.isLoading && this.$store.getters["todos/hasTodos"];
     },
   },
   created() {
     this.loadTodos();
   },
   methods: {
-    loadTodos() {
-      this.$store.dispatch("todos/loadTodos");
+    async loadTodos() {
+      this.isLoading = true;
+      await this.$store.dispatch("todos/loadTodos");
+      this.isLoading = false;
     },
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
