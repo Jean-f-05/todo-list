@@ -11,7 +11,7 @@
         checked
         @change="setFilter"
       />
-      <label for="ongoing">completed</label>
+      <label for="completed">completed</label>
     </span>
   </base-card>
 </template>
