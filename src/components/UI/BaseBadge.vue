@@ -20,18 +20,18 @@ export default {
   background-color: #ccc;
   color: #252525;
   border-radius: 30px;
-  padding: 0.5rem 1.5rem;
+  padding: 1rem 1.5rem;
   display: inline-block;
   margin-right: 0.5rem;
 }
 
 .completed {
   background-color: #ced4da;
-  color: white;
+  color: #e6e2c3;
 }
 
 .ongoing {
   background-color: #227c70;
-  color: white;
+  color: #e6e2c3;
 }
 </style>

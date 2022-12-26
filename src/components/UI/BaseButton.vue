@@ -1,5 +1,10 @@
 <template>
-  <button v-if="!link" :class="mode"><slot></slot></button>
+  <button v-if="!link && !icon" :class="mode"><slot></slot></button>
+
+  <RouterLink v-else-if="icon" :to="to" :color="color" :class="mode">
+    <v-icon :name="name" :fill="color" scale="1.3"
+  /></RouterLink>
+
   <RouterLink v-else :to="to" :class="mode"><slot></slot></RouterLink>
 </template>
 
@@ -19,7 +24,22 @@ export default {
     to: {
       type: String,
       required: false,
+      deafult: null,
+    },
+    name: {
+      type: String,
+      required: false,
       deafult: "/",
+    },
+    icon: {
+      type: Boolean,
+      required: false,
+      deafult: false,
+    },
+    color: {
+      type: String,
+      required: false,
+      default: "transparent",
     },
   },
 };
@@ -35,7 +55,7 @@ a {
   border: 1px solid #1f7065;
   color: white;
   cursor: pointer;
-  border-radius: 30px;
+  border-radius: 5px;
   margin-right: 0.5rem;
   display: inline-block;
 }
@@ -59,6 +79,28 @@ button:active {
   border-color: #1f7065;
   color: #1f7065;
 }
+
+.icon-e {
+  background-color: transparent;
+  border-color: transparent;
+  color: #1f7065;
+  padding: 0;
+}
+.icon-e:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.icon-d {
+  background-color: transparent;
+  border-color: transparent;
+  padding: 0;
+}
+.icon-d:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
 .delete {
   background-color: #fa5252;
   border-color: #fa5252;

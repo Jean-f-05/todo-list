@@ -1,14 +1,35 @@
 <template>
   <li>
-    <base-badge :type="completed"></base-badge>
+    <div class="item-head">
+      <base-badge :type="completed"></base-badge>
+      <div>
+        <base-button
+          v-if="!completed"
+          icon
+          mode="icon-e"
+          name="ri-edit-box-line"
+          :to="todoEditLink"
+          color="#1f7065"
+        ></base-button>
+        <base-button
+          icon
+          mode="icon-d"
+          name="bi-trash"
+          :to="todoDeleteLink"
+          color="#fa5252"
+        ></base-button>
+      </div>
+    </div>
     <h3>{{ description }}</h3>
     <div class="actions">
-      <base-button v-if="!completed" link mode="outline" :to="todoEditLink"
-        >EDIT</base-button
-      >
-      <base-button v-if="!completed" link mode="delete" :to="todoDeleteLink"
-        >DELETE</base-button
-      >
+      <base-button
+        v-if="!completed"
+        icon
+        mode="icon-e"
+        name="io-checkmark-circle-sharp"
+        :to="todoDeleteLink"
+        color="#1f7065"
+      ></base-button>
     </div>
   </li>
 </template>
@@ -36,7 +57,7 @@ li {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin: 0.5rem 0;
 }
 
@@ -45,6 +66,13 @@ span {
 }
 div {
   margin: 0.5rem 0;
+}
+
+.item-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .actions {
