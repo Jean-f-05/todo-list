@@ -1,7 +1,7 @@
 <template>
-  <section><todo-filter @change-filter="setFilters"></todo-filter></section>
   <section>
     <base-card>
+      <div><todo-filter @change-filter="setFilters"></todo-filter></div>
       <div class="controls">
         <base-button mode="outline" @click="loadTodos">Refresh</base-button>
         <base-button link to="/add">ADD TODO</base-button>

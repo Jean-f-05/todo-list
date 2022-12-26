@@ -1,7 +1,7 @@
 <template>
   <li>
-    <h3>{{ description }}</h3>
     <base-badge :type="completed"></base-badge>
+    <h3>{{ description }}</h3>
     <div class="actions">
       <base-button v-if="!completed" link mode="outline" :to="todoEditLink"
         >EDIT</base-button
@@ -37,13 +37,12 @@ li {
 
 h3 {
   font-size: 1.5rem;
-}
-
-h3,
-h4 {
   margin: 0.5rem 0;
 }
 
+span {
+  margin-bottom: 5px;
+}
 div {
   margin: 0.5rem 0;
 }

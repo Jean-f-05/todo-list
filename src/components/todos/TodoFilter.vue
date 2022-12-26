@@ -1,9 +1,9 @@
 <template>
   <base-card Colorized="true">
-    <h2>Find your TODO</h2>
+    <h2>MY TODOS LIST</h2>
     <span class="filter-option">
-      <input type="checkbox" name="" id="ongoing" checked @change="setFilter" />
-      <label for="ongoing">ongoing</label>
+      <input type="checkbox" id="ongoing" checked @change="setFilter" />
+      <label for="ongoing">Ongoing</label>
       <input
         type="checkbox"
         name=""
@@ -11,7 +11,7 @@
         checked
         @change="setFilter"
       />
-      <label for="completed">completed</label>
+      <label for="completed">Completed</label>
     </span>
   </base-card>
 </template>
@@ -42,7 +42,12 @@ export default {
 <style scoped>
 h2 {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+span {
+  font-size: 12px;
 }
 
 .filter-option {

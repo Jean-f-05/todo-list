@@ -4,7 +4,6 @@
       <h1><RouterLink to="/">MY TODOS</RouterLink></h1>
       <ul>
         <li><RouterLink to="/todos">ALL TODOS</RouterLink></li>
-        <li><RouterLink to="/todos/done">DONE TODOS</RouterLink></li>
       </ul>
     </nav>
   </header>

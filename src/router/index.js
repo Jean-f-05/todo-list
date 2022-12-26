@@ -12,20 +12,16 @@ const router = createRouter({
     { path: "/", redirect: "/todos" },
     {
       path: "/todos",
-      name: null,
       component: TodosList,
-      children: [{ path: "done" }],
     },
     { path: "/add", component: AddTodo },
     {
       path: "/todos/:id",
-      name: null,
       component: TodoDetails,
       children: [{ path: "delete" }, { path: "edit", component: TodoEdit }],
     },
     {
       path: "/:notFound(.*)",
-      name: null,
       component: NotFound,
     },
   ],

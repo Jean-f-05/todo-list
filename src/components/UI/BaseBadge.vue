@@ -31,7 +31,7 @@ export default {
 }
 
 .ongoing {
-  background-color: #1f7065;
+  background-color: #227c70;
   color: white;
 }
 </style>
